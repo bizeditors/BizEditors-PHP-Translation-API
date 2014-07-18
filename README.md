@@ -4,6 +4,25 @@ BizEditors-PHP-Translation-API
 With the BizEditors Translation API and Proofreading API, developers can easily access over 10.000 translators & editors and more than 120 different language pairs and integrate into their own system on demand. For details check the <a href="http://www.bizeditors.com/en/developers">PHP translation API</a> documentation.
 It takes care of authorization, JSON encoding and decoding and it can do a few more very convenient things.
 
+<h2>Getting stared:</h2>
+<a href="http://www.bizeditors.com/en/signup">Sign up</a> at bizeditors.com and request your API keys.
+
+Then include the file BizeditorsClient.php, set your API keys and call the respective method:
+
+<pre>
+include 'BizeditorsClient.php';
+
+$api_key = '12345678';
+$private_key = 'ABCDEFGH';
+
+$service = '2'; // i.e. Standard Translation
+$langID = '5'; // i.e. English - Chinese (Simplified)
+$text = 'My very long text';
+
+$bizeditorsClient = new BizeditorsClient($api_key, $private_key);
+$reply = $bizeditorsClient->getWordCountPlainText($service, $langID, $text);
+</pre>
+
 <h2>Methods:</h2>
 <ul>
   <li>Get word count of plain text (POST)</li>
@@ -31,12 +50,12 @@ Callbacks are automatic notifications which are sent to your notification URL (w
 We use JSON. Every response looks like this:
 
 <pre>
-    {
-      "response": {
+{
+  "response": {
 
-      },
-      "opStatus": "ok"
-    }
+  },
+  "opStatus": "ok"
+}
 </pre>
 
 
@@ -44,12 +63,12 @@ If something has gone wrong, the response looks like this:
 
 <pre>
 {
-    "response": {
+  "response": {
     "errorCode": "4001",
     "errorMessage": "Something has gone wrong"
-    },
-    "opStatus": "error"
-    }
+  },
+  "opStatus": "error"
+}
 </pre>
 
 Detailed documentation for all methods and callbacks is available <a href="http://www.bizeditors.com/en/developers">here</a>.

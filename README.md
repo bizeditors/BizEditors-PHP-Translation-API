@@ -7,22 +7,6 @@ It takes care of authorization, JSON encoding and decoding and it can do a few m
 <h2>Getting stared:</h2>
 <a href="http://www.bizeditors.com/en/signup">Sign up</a> at bizeditors.com and request your API keys.
 
-Then include the file BizeditorsClient.php, set your API keys and call the respective method:
-
-<pre>
-include 'BizeditorsClient.php';
-
-$api_key = '12345678';
-$private_key = 'ABCDEFGH';
-
-$service = '2'; // i.e. Standard Translation
-$langID = '5'; // i.e. English - Chinese (Simplified)
-$text = 'My very long text';
-
-$bizeditorsClient = new BizeditorsClient($api_key, $private_key);
-$reply = $bizeditorsClient->getWordCountPlainText($service, $langID, $text);
-</pre>
-
 <h2>Methods:</h2>
 <ul>
   <li>Get word count of plain text (POST)</li>
@@ -46,6 +30,22 @@ Callbacks are automatic notifications which are sent to your notification URL (w
 </ul>
 
 <h2>Example:</h2>
+
+Include the file BizeditorsClient.php, set your API keys and call the respective method:
+
+<pre>
+include 'BizeditorsClient.php';
+
+$api_key = '12345678';
+$private_key = 'ABCDEFGH';
+
+$service = '2'; // i.e. Standard Translation
+$langID = '5'; // i.e. English - Chinese (Simplified)
+$text = 'My very long text';
+
+$bizeditorsClient = new BizeditorsClient($api_key, $private_key);
+$reply = $bizeditorsClient->getWordCountPlainText($service, $langID, $text);
+</pre>
 
 We use JSON. Every response looks like this:
 

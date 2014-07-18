@@ -6,7 +6,7 @@ It takes care of authorization, JSON encoding and decoding and it can do a few m
 
 <h2>Methods:</h2>
 <ul>
-  <li>Get word count of plain text (POST)t</li>
+  <li>Get word count of plain text (POST)</li>
   <li>Get word count of document (POST)</li>
   <li>Post a job with plain text (POST)</li>
   <li>Post a job with document (POST)</li>
@@ -25,6 +25,8 @@ Callbacks are automatic notifications which are sent to your notification URL (w
   <li>When a job has been finished</li>
   <li>When translator or editor sends a comment</li>
 </ul>
+
+<h2>Example:</h2>
 
 We use JSON. Every response looks like this:
 
@@ -49,3 +51,5 @@ If something has gone wrong, the response looks like this:
     "opStatus": "error"
     }
 </pre>
+
+Detailed documentation for all methods and callbacks is available <a href="http://www.bizeditors.com/en/developers">here</a>.

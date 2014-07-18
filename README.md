@@ -1,9 +1,10 @@
 BizEditors-PHP-Translation-API
 ==============================
 
-With the BizEditors Translation API, developers can easily access over 10.000 translators / editors and more than 120 different language pairs and integrate into their own system. For details check the <a href="http://www.bizeditors.com/en/developers">translation API documentation</a>.
+With the BizEditors Translation API and Proofreading API, developers can easily access over 10.000 translators & editors and more than 120 different language pairs and integrate into their own system on demand. For details check the <a href="http://www.bizeditors.com/en/developers">PHP translation API</a> documentation.
+It takes care of authorization, JSON encoding and decoding and it can do a few more very convenient things.
 
-Supported methods are:
+<h2>Methods:</h2>
 <ul>
   <li>Get word count of plain text (POST)t</li>
   <li>Get word count of document (POST)</li>
@@ -15,3 +16,36 @@ Supported methods are:
 </ul>
 
 A list of supported languages and categories is available <a href="http://www.bizeditors.com/en/developers/languages">here</a>.
+
+<h2>Callbacks:</h2>
+
+Callbacks are automatic notifications which are sent to your notification URL (which you specify with your post job or post plain text method). Callbacks are available for the following events:
+
+<ul>
+  <li>When a job has been finished</li>
+  <li>When translator or editor sends a comment</li>
+</ul>
+
+We use JSON. Every response looks like this:
+
+<pre>
+    {
+      "response": {
+
+      },
+      "opStatus": "ok"
+    }
+</pre>
+
+
+If something has gone wrong, the response looks like this:
+
+<pre>
+{
+    "response": {
+    "errorCode": "4001",
+    "errorMessage": "Something has gone wrong"
+    },
+    "opStatus": "error"
+    }
+</pre>

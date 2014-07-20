@@ -1,4 +1,4 @@
-BizEditors-PHP-Translation-API
+BizEditors PHP Translation API
 ==============================
 
 With the BizEditors Translation API and Proofreading API, developers can easily access over 10.000 translators & editors and more than 120 different language pairs and integrate into their own system on demand. For details check the <a href="http://www.bizeditors.com/en/developers">PHP translation API</a> documentation.

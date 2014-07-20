@@ -1,16 +1,15 @@
 <?php
 class BizeditorsClient {
 
-	//private $url = 'http://api.bizeditors.com/api';
-    private $url = 'http://bizeditors.localhost/api';
+	private $url = 'http://api.bizeditors.com/api';
 	private $api_key = '';
 	private $private_key = '';
-	
+
 	function __construct ($api_key, $private_key) {
 		$this->api_key = $api_key;
-		$this->private_key = $private_key;	
+		$this->private_key = $private_key;
 	}
-	
+
 	/**
 	 * Send a plain text job
 	 *
@@ -38,13 +37,13 @@ class BizeditorsClient {
 		$reply = $this->doPost ( $this->url . '/jobs', $params );
 		return json_decode($reply);
 	}
-	
+
 	/**
 	 * Send a document for editing, MUST be a docx, xlsx or pptx
 	 *
-	 * @param string $filename        	
-	 * @param string $instructions        	
-	 * @param boolean $oneDay        	
+	 * @param string $filename
+	 * @param string $instructions
+	 * @param boolean $oneDay
 	 */
 	function sendDocument($service, $langID, $category, $filename, $instructions = FALSE, $notify_url = FALSE) {
 		$doc = fread ( fopen ( $filename, "r" ), filesize ( $filename ) );
@@ -109,7 +108,7 @@ class BizeditorsClient {
 		$reply = $this->doPost ( $this->url . '/balance', $params );
 		return json_decode ( $reply );
 	}
-	
+
 	/**
 	 * Post a comment to an existing job
 	 *
@@ -129,7 +128,7 @@ class BizeditorsClient {
 		$reply = $this->doPost ( $this->url . '/jobs/' . $jobId . '/comment', $params );
 		return json_decode ( $reply );
 	}
-	
+
 	/**
 	 * Fetch the status of a job from the server
 	 *
@@ -146,7 +145,7 @@ class BizeditorsClient {
 		return json_decode ( $reply, TRUE );
 	}
 
-	
+
 	/**
 	 * Helper function - set the authentification and data parameters
 	 *
@@ -154,26 +153,26 @@ class BizeditorsClient {
 	 *        	public API key
 	 * @param string $private_key
 	 *        	private API key
-	 * @param array $data        	
+	 * @param array $data
 	 * @return multitype:unknown NULL
 	 */
 	function setParams($api_key, $private_key, $data) {
 		$params = array (
 				'api_key' => $api_key,
 				'ts' => gmdate ( 'U' ),
-				'data' => json_encode ( $data ) 
+				'data' => json_encode ( $data )
 		);
-		
+
 		$hmac = hash_hmac ( 'sha1', $params ['ts'], $private_key );
 		$params ['api_sig'] = $hmac;
 		return $params;
 	}
-	
+
 	/**
 	 * Helper function - post the request to the server
-	 * 
-	 * @param string $url        	
-	 * @param string $params        	
+	 *
+	 * @param string $url
+	 * @param string $params
 	 * @return string the server response
 	 */
 	function doPost($url, $params) {

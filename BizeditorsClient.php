@@ -1,7 +1,7 @@
 <?php
 class BizeditorsClient {
 
-	private $url = 'http://api.bizeditors.com/api';
+	private $url = 'http://www.bizeditors.com/api';
 	private $api_key = '';
 	private $private_key = '';
 

@@ -1,11 +1,13 @@
-BizEditors PHP Translation API
+WritePath Translation API (PHP, Java)
 ==============================
 
-With the WritePath Translation API and Proofreading API, developers can easily access over 10.000 translators & editors and more than 120 different language pairs and integrate into their own system on demand. For details check the <a href="http://www.bizeditors.com/en/developers">PHP translation API</a> documentation.
+With the WritePath Translation API and Proofreading API, developers can easily access over 10.000 translators & editors and more than 120 different language pairs and integrate into their own system on demand. For details check the <a href="https://www.writepath.co/en/developers">PHP translation API</a> documentation.
 It takes care of authorization, JSON encoding and decoding and it can do a few more very convenient things.
 
+New: A Java translation API client is available upon request
+
 <h2>Getting started:</h2>
-<a href="http://www.bizeditors.com/en/signup">Sign up</a> at bizeditors.com and request your API keys.
+<a href="https://www.writepath.co/en/signup">Sign up</a> at writepath.co and request your API keys.
 
 <h2>Methods:</h2>
 <ul>
@@ -18,7 +20,7 @@ It takes care of authorization, JSON encoding and decoding and it can do a few m
   <li>Post a comment (POST)</li>
 </ul>
 
-A list of supported languages and categories is available <a href="http://www.bizeditors.com/en/developers/languages">here</a>.
+A list of supported languages and categories is available <a href="https://www.writepath.co/en/developers/languages">here</a>.
 
 <h2>Callbacks:</h2>
 
@@ -31,10 +33,10 @@ Callbacks are automatic notifications which are sent to your notification URL (w
 
 <h2>Example:</h2>
 
-Include the file BizeditorsClient.php, set your API keys and call the respective method:
+Include the file WritePathClient.php, set your API keys and call the respective method:
 
 <pre>
-include 'BizeditorsClient.php';
+include 'WritePathClient.php';
 
 $api_key = '12345678';
 $private_key = 'ABCDEFGH';
@@ -43,8 +45,8 @@ $service = '2'; // i.e. Standard Translation
 $langID = '5'; // i.e. English - Chinese (Simplified)
 $text = 'My very long text';
 
-$bizeditorsClient = new BizeditorsClient($api_key, $private_key);
-$reply = $bizeditorsClient->getWordCountPlainText($service, $langID, $text);
+$WritePathClient = new WritePathClient($api_key, $private_key);
+$reply = $WritePathClient->getWordCountPlainText($service, $langID, $text);
 </pre>
 
 We use JSON. Every response looks like this:
@@ -71,4 +73,4 @@ If something has gone wrong, the response looks like this:
 }
 </pre>
 
-Detailed documentation for all methods and callbacks is available <a href="http://www.bizeditors.com/en/developers">here</a>.
+Detailed documentation for all methods and callbacks is available <a href="https://www.writepath.co/en/developers">here</a>.
